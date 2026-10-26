@@ -4,258 +4,345 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta Origin - Pharmacy | تحميل وتواصل</title>
-    <!-- استيراد خطوط وتصاميم عصرية -->
+    <!-- استيراد الخطوط والأيقونات -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-card: #131c31;
+            --bg-card-hover: #1a2642;
+            --accent-blue: #3b82f6;
+            --accent-green: #22c55e;
+            --border-color: #1e2d4a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Cairo', sans-serif;
         }
+
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px 10px;
-        }
-        .container {
-            max-width: 900px;
-            width: 100%;
-            margin: 20px auto;
-            background: #1e293b;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
-            border: 1px solid #334155;
+            padding: 20px 12px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(34, 197, 94, 0.05) 0%, transparent 40%);
         }
 
-        /* Hero & About Section */
-        .company-header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            padding: 35px 25px;
-            border-bottom: 1px solid #334155;
+        .main-wrapper {
+            max-width: 950px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Hero & Header Section */
+        .hero-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             gap: 20px;
+            position: relative;
+            overflow: hidden;
         }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #22c55e);
+        }
+
         @media (min-width: 768px) {
-            .company-header {
+            .hero-card {
                 flex-direction: row-reverse;
                 text-align: right;
                 justify-content: space-between;
             }
         }
-        .header-brand {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .company-logo-main {
-            width: 110px;
-            height: 110px;
-            border-radius: 24px;
-            object-fit: cover;
-            border: 2px solid #3b82f6;
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
-        }
-        .company-info {
-            max-width: 600px;
-        }
-        .company-info h1 {
-            font-size: 26px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        .company-info .subtitle {
-            color: #38bdf8;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-        .company-info p {
-            color: #94a3b8;
-            font-size: 13.5px;
-            line-height: 1.7;
+
+        .company-logo-wrap {
+            position: relative;
+            flex-shrink: 0;
         }
 
-        /* App Banner Bar */
+        .company-logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            object-fit: cover;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            background: #000;
+        }
+
+        .hero-info {
+            max-width: 620px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                justify-content: flex-start;
+            }
+        }
+
+        .hero-subtitle {
+            color: #38bdf8;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* App Bar */
         .app-bar {
-            background: #111827;
-            padding: 15px 25px;
+            background: #0d1527;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #1f2937;
             flex-wrap: wrap;
-            gap: 10px;
-        }
-        .app-bar-title {
-            display: flex;
-            align-items: center;
             gap: 12px;
         }
-        .app-bar-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        .app-bar-text h2 {
-            font-size: 16px;
-            font-weight: 800;
-            color: #f3f4f6;
-        }
-        .app-bar-text span {
-            font-size: 12px;
-            color: #6b7280;
+
+        .app-bar-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
 
-        /* Section Titles */
-        .content {
-            padding: 30px 20px;
+        .app-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
         }
-        .section-title {
-            font-size: 18px;
+
+        .app-text h2 {
+            font-size: 17px;
             font-weight: 800;
-            margin-bottom: 20px;
-            color: #f1f5f9;
-            border-bottom: 2px solid #334155;
-            padding-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .app-text span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .badge-verified {
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Section Styling */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-header {
+            font-size: 19px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .section-title i {
-            color: #3b82f6;
+
+        .section-header i {
+            color: var(--accent-blue);
         }
 
-        /* Downloads Grid */
+        /* Links Grid */
         .links-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 35px;
+            gap: 14px;
         }
-        @media (min-width: 576px) {
+
+        @media (min-width: 600px) {
             .links-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
         .download-btn {
+            background: #0e172a;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #0f172a;
-            border: 1px solid #334155;
-            padding: 14px 18px;
-            border-radius: 12px;
-            color: #fff;
             text-decoration: none;
-            transition: all 0.25s ease;
+            color: var(--text-main);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .download-btn:hover {
-            background: #2563eb;
-            border-color: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            background: var(--bg-card-hover);
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
         }
-        .btn-info {
+
+        .btn-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
-        .btn-info i {
-            font-size: 22px;
-            color: #60a5fa;
-            width: 26px;
+
+        .btn-left i {
+            font-size: 24px;
+            width: 28px;
             text-align: center;
         }
-        .download-btn:hover .btn-info i {
-            color: #fff;
-        }
-        .btn-text .platform-name {
-            font-weight: 700;
+
+        .btn-details .platform-name {
+            font-weight: 800;
             font-size: 15px;
             display: block;
         }
-        .btn-text .platform-desc {
-            font-size: 11.5px;
-            color: #94a3b8;
-        }
-        .download-btn:hover .btn-text .platform-desc {
-            color: #dbeafe;
-        }
-        .action-icon {
-            font-size: 14px;
-            color: #64748b;
-        }
-        .download-btn:hover .action-icon {
-            color: #fff;
-        }
-        .password-note {
-            font-size: 11px;
-            background: #334155;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #fbbf24;
-            display: inline-block;
-            cursor: pointer;
+
+        .btn-details .platform-sub {
+            font-size: 12px;
+            color: var(--text-muted);
         }
 
-        /* Support Report Box */
-        .report-box {
-            background: #0f172a;
-            border: 1px dashed #334155;
-            border-radius: 14px;
-            padding: 18px 20px;
+        .password-badge {
+            background: rgba(234, 179, 8, 0.15);
+            color: #fde047;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 2px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .password-badge:hover {
+            background: rgba(234, 179, 8, 0.3);
+        }
+
+        .action-arrow {
+            font-size: 15px;
+            color: #475569;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .download-btn:hover .action-arrow {
+            color: var(--accent-blue);
+            transform: translateX(-4px);
+        }
+
+        /* Support Box */
+        .support-box {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.5));
+            border: 1px dashed var(--border-color);
+            border-radius: 18px;
+            padding: 20px 24px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 35px;
+            gap: 14px;
+            margin-top: 24px;
         }
+
         @media (min-width: 640px) {
-            .report-box {
+            .support-box {
                 flex-direction: row-reverse;
                 align-items: center;
                 justify-content: space-between;
             }
         }
-        .report-text h3 {
+
+        .support-info h3 {
             font-size: 15px;
-            font-weight: 700;
-            color: #f8fafc;
+            font-weight: 800;
+            color: #ffffff;
             margin-bottom: 4px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .report-text p {
+
+        .support-info p {
             font-size: 12.5px;
-            color: #94a3b8;
+            color: var(--text-muted);
         }
-        .report-btn {
-            background: #f8fafc;
+
+        .support-btn {
+            background: #ffffff;
             color: #0f172a;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 700;
+            padding: 11px 22px;
+            border-radius: 12px;
+            font-weight: 800;
             font-size: 13px;
             text-decoration: none;
             text-align: center;
             white-space: nowrap;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
-        .report-btn:hover {
+
+        .support-btn:hover {
             background: #e2e8f0;
+            transform: scale(1.02);
         }
 
         /* Team Section */
@@ -264,124 +351,142 @@
             grid-template-columns: 1fr;
             gap: 20px;
         }
-        @media (min-width: 640px) {
+
+        @media (min-width: 680px) {
             .team-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
         .team-card {
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 16px;
+            background: #0d1527;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
-        .team-card-header {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+
+        .team-card-top {
             padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid #334155;
+            gap: 16px;
         }
-        .team-avatar-img {
-            width: 65px;
-            height: 65px;
+
+        .team-photo {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #60a5fa;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
             flex-shrink: 0;
+            background: #1e293b;
         }
-        .team-info h3 {
-            font-size: 18px;
-            font-weight: 800;
-            color: #fff;
-        }
-        .team-info .role {
+
+        .team-meta .role {
             font-size: 12px;
-            font-weight: 700;
-            color: #34d399;
+            font-weight: 800;
+            color: #4ade80;
             margin-bottom: 2px;
         }
-        .team-info .english-name {
-            font-size: 11px;
-            color: #64748b;
+
+        .team-meta h3 {
+            font-size: 18px;
+            font-weight: 900;
+            color: #ffffff;
         }
+
+        .team-meta .en-name {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
         .team-card-body {
             padding: 20px;
-            font-size: 12.5px;
-            color: #94a3b8;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-        .contact-title {
-            font-weight: 700;
-            color: #cbd5e1;
             font-size: 13px;
-            margin-top: 15px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-heading {
+            font-size: 13px;
+            font-weight: 800;
+            color: #cbd5e1;
+            margin-top: 16px;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 6px;
         }
-        .whatsapp-list {
+
+        .wa-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
-        .whatsapp-item {
+
+        .wa-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #1e293b;
+            background: #131c31;
+            border: 1px solid var(--border-color);
             padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid #334155;
+            border-radius: 10px;
         }
-        .whatsapp-item.primary-item {
-            border-color: #22c55e;
-            background: rgba(34, 197, 94, 0.05);
+
+        .wa-row.primary {
+            border-color: rgba(34, 197, 94, 0.4);
+            background: rgba(34, 197, 94, 0.06);
         }
-        .phone-num {
-            font-size: 13px;
-            font-weight: 700;
+
+        .phone-text {
+            font-weight: 800;
+            font-size: 13.5px;
             color: #f1f5f9;
             direction: ltr;
-            letter-spacing: 0.5px;
         }
-        .wa-btn {
-            background: #22c55e;
-            color: #fff;
+
+        .wa-link {
+            background: var(--accent-green);
+            color: #ffffff;
             text-decoration: none;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 11.5px;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 6px;
             transition: background 0.2s;
         }
-        .wa-btn:hover {
+
+        .wa-link:hover {
             background: #16a34a;
         }
 
         /* Footer */
-        .footer {
+        footer {
             text-align: center;
-            padding: 20px;
+            padding: 24px 10px;
             font-size: 13px;
-            color: #64748b;
-            background: #111827;
-            border-top: 1px solid #1f2937;
+            color: var(--text-muted);
+            margin-top: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
-        .company-logo-footer {
+
+        .footer-logo {
             width: 22px;
             height: 22px;
             border-radius: 50%;
@@ -391,232 +496,240 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- ترويسة الشركة والتعريف بها -->
-        <div class="company-header">
-            <div class="header-brand">
-                <img src="company-logo.png" alt="Meta Origin Logo" class="company-logo-main">
+    <div class="main-wrapper">
+
+        <!-- Hero Section -->
+        <div class="hero-card">
+            <div class="company-logo-wrap">
+                <img src="company-logo.png" alt="Meta Origin" class="company-logo-img">
             </div>
-            <div class="company-info">
-                <h1>Meta Origin</h1>
-                <div class="subtitle">Software Studio — استوديو برمجيات</div>
-                <p>
+            <div class="hero-info">
+                <h1 class="hero-title">Meta Origin</h1>
+                <div class="hero-subtitle">Software Studio — استوديو برمجيات</div>
+                <p class="hero-desc">
                     Meta Origin شركة برمجيات مصرية تطوّر أنظمة إدارة متكاملة للصيدليات والعيادات والمدارس والفنادق والمصانع والمخازن والمحلات: الحسابات، والمخازن، والمرتبات، والكاشير، والتقارير. هدفنا برامج عربية سهلة الاستخدام، تشتغل على جهاز واحد أو على شبكة كاملة، ومعاها دعم فني قريب منك من أول التركيب لحد ما الشغل يمشي بسلاسة.
                 </p>
             </div>
         </div>
 
-        <!-- شريط تعريف البرنامج -->
+        <!-- App Bar -->
         <div class="app-bar">
-            <div class="app-bar-title">
-                <img src="app-logo.png" alt="Pharmacy Logo" class="app-bar-icon">
-                <div class="app-bar-text">
+            <div class="app-bar-brand">
+                <img src="app-logo.png" alt="Meta Origin - Pharmacy" class="app-icon">
+                <div class="app-text">
                     <h2>Meta Origin - Pharmacy</h2>
                     <span>نظام الصيدليات — الإصدار 1.1.0</span>
                 </div>
             </div>
-            <span style="font-size: 12px; color: #94a3b8;"><i class="fa-solid fa-shield-halved" style="color: #22c55e;"></i> إصدار معتمد وآمن</span>
+            <div class="badge-verified">
+                <i class="fa-solid fa-circle-check"></i> أصلي ومعتمد
+            </div>
         </div>
 
-        <div class="content">
-            <!-- قسم روابط التحميل -->
-            <div class="section-title">
+        <!-- Download Links Section -->
+        <div class="section-card">
+            <div class="section-header">
                 <i class="fa-solid fa-cloud-arrow-down"></i> روابط التحميل المتاحة
             </div>
 
             <div class="links-grid">
                 <!-- Google Drive -->
                 <a href="https://drive.google.com/file/d/137sa0Q5bXbB-GYDaqQQWKh3uIgxIFkct/view?usp=sharing" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-brands fa-google-drive" style="color: #34a853;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">Google Drive</span>
-                            <span class="platform-desc">رابط مباشر وسريع</span>
+                            <span class="platform-sub">تحميل مباشر وسريع</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- MediaFire -->
                 <a href="https://www.mediafire.com/file/lo84p1yk9qhfsfd/Meta+Origin+-+Pharmacy.rar/file" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-solid fa-fire" style="color: #f87171;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">MediaFire</span>
-                            <span class="platform-desc">بدون انتظار</span>
+                            <span class="platform-sub">بدون انتظار</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- Mega.nz -->
                 <a href="https://mega.nz/file/L0IykZLZ#Sqqb6pmmfFyL_w-PibDBncw1uyog3nGmSV-6m7GPUak" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-solid fa-m" style="color: #ef4444;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">Mega.nz</span>
-                            <span class="platform-desc">مساحة آمنة</span>
+                            <span class="platform-sub">تخزين آمن جداً</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- Koofr -->
                 <a href="https://k00.fr/wdou3iit" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-solid fa-box-archive" style="color: #60a5fa;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">Koofr</span>
-                            <span class="platform-desc">الباسورد: <span class="password-note" onclick="event.preventDefault(); navigator.clipboard.writeText('702912'); alert('تم نسخ كلمة السر بنجاح (702912)');">702912 (انسخ)</span></span>
+                            <span class="platform-sub">كلمة السر: <span class="password-badge" onclick="event.preventDefault(); navigator.clipboard.writeText('702912'); alert('تم نسخ كلمة السر بنجاح (702912)');">702912 (انقر للنسخ)</span></span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- My.pCloud -->
                 <a href="https://u.pcloud.link/publink/show?code=XZJNcbJZQxwd4bzYDJmrQrSgzNkL9bjXWmPk" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-solid fa-cloud" style="color: #38bdf8;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">My.pCloud</span>
-                            <span class="platform-desc">تحميل مستقر</span>
+                            <span class="platform-sub">سيرفر عالي السرعة</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- 4shared -->
                 <a href="https://www.4shared.com/rar/6A0FaNc_ge/Meta_Origin_-_Pharmacy.html" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-solid fa-4" style="color: #3b82f6;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">4shared</span>
-                            <span class="platform-desc">أرشيف الملفات</span>
+                            <span class="platform-sub">أرشيف سحابي</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- Terabox -->
                 <a href="https://1024terabox.com/s/10P0-aLiO5E8IWZJNtMdh7Q" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-solid fa-hard-drive" style="color: #06b6d4;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">Terabox</span>
-                            <span class="platform-desc">تخزين سحابي ضخم</span>
+                            <span class="platform-sub">سعة ضخمة</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- Dropbox -->
                 <a href="https://www.dropbox.com/scl/fi/k9l2ku6s93tau9s3dcr3s/Meta-Origin-Pharmacy.rar?rlkey=wl1nji6g8afi49xw1i8yn8t0b&st=9teek38p&dl=0" target="_blank" class="download-btn">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-brands fa-dropbox" style="color: #0284c7;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">Dropbox</span>
-                            <span class="platform-desc">سحابي اعتيادي</span>
+                            <span class="platform-sub">رابط عالمي اعتيادي</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
 
                 <!-- OneDrive -->
                 <a href="https://1drv.ms/u/c/b15d47f8ccb53e7f/IQDxLdEEN5chRJRlptOLa7UbAckJIbuF_KuJ57Dr5TdGVes" target="_blank" class="download-btn" style="grid-column: 1 / -1;">
-                    <div class="btn-info">
+                    <div class="btn-left">
                         <i class="fa-brands fa-microsoft" style="color: #2563eb;"></i>
-                        <div class="btn-text">
+                        <div class="btn-details">
                             <span class="platform-name">OneDrive</span>
-                            <span class="platform-desc">مايكروسوفت وان درايف</span>
+                            <span class="platform-sub">سحابي مايكروسوفت الرسمية</span>
                         </div>
                     </div>
-                    <i class="fa-solid fa-download action-icon"></i>
+                    <i class="fa-solid fa-arrow-left action-arrow"></i>
                 </a>
             </div>
 
-            <!-- صندوق تقرير المشاكل -->
-            <div class="report-box">
-                <a href="https://wa.me/201150606002?text=السلام%20عليكم،%20أريد%20إرسال%20تقرير%20مشكلة%20في%20برنامج%20الصيدليات" target="_blank" class="report-btn">إرسال تقرير مشكلة</a>
-                <div class="report-text">
+            <!-- Support Box -->
+            <div class="support-box">
+                <a href="https://wa.me/201150606002?text=السلام%20علكم،%20أريد%20إرسال%20تقرير%20مشكلة%20في%20برنامج%20الصيدليات" target="_blank" class="support-btn">إرسال تقرير مشكلة</a>
+                <div class="support-info">
                     <h3><i class="fa-solid fa-bug" style="color: #f87171;"></i> عندك مشكلة في البرنامج؟</h3>
                     <p>ابعث تقرير للدعم الفني فيه معلومات الجهاز وأخر الأخطاء (من غير بيانات عملاء).</p>
                 </div>
             </div>
+        </div>
 
-            <!-- قسم فريق العمل والتواصل -->
-            <div class="section-title">
+        <!-- Team & Contact Section -->
+        <div class="section-card">
+            <div class="section-header">
                 <i class="fa-solid fa-users"></i> فريق العمل وطرق التواصل
             </div>
 
             <div class="team-grid">
-                <!-- محمود يوسف -->
+                <!-- Mahmoud Youssef -->
                 <div class="team-card">
-                    <div class="team-card-header">
-                        <img src="mahmoud.png" alt="Mahmoud Youssef" class="team-avatar-img">
-                        <div class="team-info">
+                    <div class="team-card-top">
+                        <img src="mahmoud.png" alt="Mahmoud Youssef" class="team-photo">
+                        <div class="team-meta">
                             <div class="role">المؤسس والمدير التنفيذي</div>
                             <h3>محمود يوسف</h3>
-                            <div class="english-name">Mahmoud Youssef</div>
+                            <div class="en-name">Mahmoud Youssef</div>
                         </div>
                     </div>
                     <div class="team-card-body">
                         يقود رؤية Meta Origin وتطوير منتجاتها. خبرته في فهم احتياجات المؤسسات وتحويلها لأنظمة عملية بتوفّر الوقت وبتظبط الحسابات، وبيتابع بنفسه تصميم الحلول وتركيبها ودعم العملاء.
                         
-                        <div class="contact-title">
-                            <i class="fa-solid fa-headset" style="color: #3b82f6;"></i> للتواصل والواتساب
-                        </div>
-                        <div class="whatsapp-list">
-                            <!-- الرقم الأساسي -->
-                            <div class="whatsapp-item primary-item">
-                                <span class="phone-num">01150606002</span>
-                                <a href="https://wa.me/201150606002" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب (الأساسي)</a>
+                        <div>
+                            <div class="contact-heading">
+                                <i class="fa-solid fa-headset" style="color: var(--accent-blue);"></i> للتواصل والواتساب
                             </div>
-                            <div class="whatsapp-item">
-                                <span class="phone-num">01277122615</span>
-                                <a href="https://wa.me/201277122615" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
-                            </div>
-                            <div class="whatsapp-item">
-                                <span class="phone-num">01011121145</span>
-                                <a href="https://wa.me/201011121145" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                            <div class="wa-list">
+                                <div class="wa-row primary">
+                                    <span class="phone-text">01150606002</span>
+                                    <a href="https://wa.me/201150606002" target="_blank" class="wa-link"><i class="fa-brands fa-whatsapp"></i> واتساب (الأساسي)</a>
+                                </div>
+                                <div class="wa-row">
+                                    <span class="phone-text">01277122615</span>
+                                    <a href="https://wa.me/201277122615" target="_blank" class="wa-link"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                                </div>
+                                <div class="wa-row">
+                                    <span class="phone-text">01011121145</span>
+                                    <a href="https://wa.me/201011121145" target="_blank" class="wa-link"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- عمر صالح -->
+                <!-- Omar Saleh -->
                 <div class="team-card">
-                    <div class="team-card-header">
-                        <img src="omar.png" alt="Omar Saleh" class="team-avatar-img">
-                        <div class="team-info">
+                    <div class="team-card-top">
+                        <img src="omar.png" alt="Omar Saleh" class="team-photo" style="border-color: #38bdf8;">
+                        <div class="team-meta">
                             <div class="role" style="color: #38bdf8;">الشريك المؤسس</div>
                             <h3>عمر صالح</h3>
-                            <div class="english-name">Omar Saleh</div>
+                            <div class="en-name">Omar Saleh</div>
                         </div>
                     </div>
                     <div class="team-card-body">
                         شريك في تأسيس Meta Origin ومسؤول عن تطوير الأعمال والعلاقة مع العملاء. بيحرص إن كل مؤسسة تاخد النظام المناسب لحجمها وطريقة شغلها، وبيتابع التدريب وخدمة ما بعد البيع.
                         
-                        <div class="contact-title">
-                            <i class="fa-solid fa-headset" style="color: #38bdf8;"></i> للتواصل والواتساب
-                        </div>
-                        <div class="whatsapp-list">
-                            <div class="whatsapp-item">
-                                <span class="phone-num">01200966258</span>
-                                <a href="https://wa.me/201200966258" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                        <div>
+                            <div class="contact-heading">
+                                <i class="fa-solid fa-headset" style="color: #38bdf8;"></i> للتواصل والواتساب
+                            </div>
+                            <div class="wa-list">
+                                <div class="wa-row">
+                                    <span class="phone-text">01200966258</span>
+                                    <a href="https://wa.me/201200966258" target="_blank" class="wa-link"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
 
-    <!-- تذييل الصفحة -->
-    <div class="footer">
-        <img src="company-logo.png" alt="Meta Origin Logo" class="company-logo-footer">
+    <!-- Footer -->
+    <footer>
+        <img src="company-logo.png" alt="Meta Origin" class="footer-logo">
         <span>Meta Origin 2026 © Meta Origin - Pharmacy — جميع الحقوق محفوظة</span>
-    </div>
+    </footer>
 
 </body>
 </html>
