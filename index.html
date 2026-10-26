@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل برنامج Meta Origin - Pharmacy</title>
+    <title>Meta Origin - Pharmacy | تحميل وتواصل</title>
     <!-- استيراد خطوط وتصاميم عصرية -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,59 +21,129 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px;
+            padding: 20px 10px;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
-            margin: 40px auto;
+            margin: 20px auto;
             background: #1e293b;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             border: 1px solid #334155;
         }
-        .header {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            padding: 40px 20px;
+
+        /* Hero & About Section */
+        .company-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 35px 25px;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            gap: 20px;
         }
-        .app-logo-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 22px;
+        @media (min-width: 768px) {
+            .company-header {
+                flex-direction: row-reverse;
+                text-align: right;
+                justify-content: space-between;
+            }
+        }
+        .header-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .company-logo-main {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
             object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid #3b82f6;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
         }
-        .header h1 {
-            font-size: 28px;
+        .company-info {
+            max-width: 600px;
+        }
+        .company-info h1 {
+            font-size: 26px;
             font-weight: 900;
-            margin-bottom: 10px;
-            color: #fff;
+            color: #ffffff;
+            margin-bottom: 5px;
         }
-        .header p {
-            color: #93c5fd;
+        .company-info .subtitle {
+            color: #38bdf8;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .company-info p {
+            color: #94a3b8;
+            font-size: 13.5px;
+            line-height: 1.7;
+        }
+
+        /* App Banner Bar */
+        .app-bar {
+            background: #111827;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #1f2937;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .app-bar-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-bar-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .app-bar-text h2 {
             font-size: 16px;
+            font-weight: 800;
+            color: #f3f4f6;
         }
+        .app-bar-text span {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* Section Titles */
         .content {
-            padding: 30px;
+            padding: 30px 20px;
         }
         .section-title {
             font-size: 18px;
+            font-weight: 800;
             margin-bottom: 20px;
-            color: #cbd5e1;
+            color: #f1f5f9;
             border-bottom: 2px solid #334155;
             padding-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
+        .section-title i {
+            color: #3b82f6;
+        }
+
+        /* Downloads Grid */
         .links-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 12px;
+            margin-bottom: 35px;
         }
         @media (min-width: 576px) {
             .links-grid {
@@ -86,11 +156,11 @@
             justify-content: space-between;
             background: #0f172a;
             border: 1px solid #334155;
-            padding: 15px 20px;
+            padding: 14px 18px;
             border-radius: 12px;
             color: #fff;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
         .download-btn:hover {
             background: #2563eb;
@@ -104,26 +174,28 @@
             gap: 12px;
         }
         .btn-info i {
-            font-size: 24px;
+            font-size: 22px;
             color: #60a5fa;
+            width: 26px;
+            text-align: center;
         }
         .download-btn:hover .btn-info i {
             color: #fff;
         }
         .btn-text .platform-name {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             display: block;
         }
         .btn-text .platform-desc {
-            font-size: 12px;
+            font-size: 11.5px;
             color: #94a3b8;
         }
         .download-btn:hover .btn-text .platform-desc {
             color: #dbeafe;
         }
         .action-icon {
-            font-size: 16px;
+            font-size: 14px;
             color: #64748b;
         }
         .download-btn:hover .action-icon {
@@ -135,25 +207,189 @@
             padding: 2px 6px;
             border-radius: 4px;
             color: #fbbf24;
-            margin-top: 3px;
             display: inline-block;
             cursor: pointer;
         }
+
+        /* Support Report Box */
+        .report-box {
+            background: #0f172a;
+            border: 1px dashed #334155;
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        @media (min-width: 640px) {
+            .report-box {
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .report-text h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .report-text p {
+            font-size: 12.5px;
+            color: #94a3b8;
+        }
+        .report-btn {
+            background: #f8fafc;
+            color: #0f172a;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            text-align: center;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .report-btn:hover {
+            background: #e2e8f0;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .team-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-card-header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #334155;
+        }
+        .team-avatar-placeholder {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 900;
+            border: 2px solid #60a5fa;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+        .team-info h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .team-info .role {
+            font-size: 12px;
+            font-weight: 700;
+            color: #34d399;
+            margin-bottom: 2px;
+        }
+        .team-info .english-name {
+            font-size: 11px;
+            color: #64748b;
+        }
+        .team-card-body {
+            padding: 20px;
+            font-size: 12.5px;
+            color: #94a3b8;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .contact-title {
+            font-weight: 700;
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .whatsapp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .whatsapp-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1e293b;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+        .whatsapp-item.primary-item {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.05);
+        }
+        .phone-num {
+            font-size: 13px;
+            font-weight: 700;
+            color: #f1f5f9;
+            direction: ltr;
+            letter-spacing: 0.5px;
+        }
+        .wa-btn {
+            background: #22c55e;
+            color: #fff;
+            text-decoration: none;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+        .wa-btn:hover {
+            background: #16a34a;
+        }
+
+        /* Footer */
         .footer {
             text-align: center;
             padding: 20px;
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
             background: #111827;
             border-top: 1px solid #1f2937;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
         .company-logo-footer {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -162,15 +398,34 @@
 <body>
 
     <div class="container">
-        <!-- ترويسة الصفحة مع لوجو التطبيق الحقيقي -->
-        <div class="header">
-            <img src="app-logo.png" alt="Meta Origin - Pharmacy Logo" class="app-logo-img">
-            <h1>Meta Origin - Pharmacy</h1>
-            <p>اختر منصة التفضيل الخاصة بك لتحميل البرنامج بأمان وسرعة</p>
+        <!-- ترويسة الشركة والتعريف بها -->
+        <div class="company-header">
+            <div class="header-brand">
+                <img src="company-logo.png" alt="Meta Origin Logo" class="company-logo-main">
+            </div>
+            <div class="company-info">
+                <h1>Meta Origin</h1>
+                <div class="subtitle">Software Studio — استوديو برمجيات</div>
+                <p>
+                    Meta Origin شركة برمجيات مصرية تطوّر أنظمة إدارة متكاملة للصيدليات والعيادات والمدارس والفنادق والمصانع والمخازن والمحلات: الحسابات، والمخازن، والمرتبات، والكاشير، والتقارير. هدفنا برامج عربية سهلة الاستخدام، تشتغل على جهاز واحد أو على شبكة كاملة، ومعاها دعم فني قريب منك من أول التركيب لحد ما الشغل يمشي بسلاسة.
+                </p>
+            </div>
         </div>
 
-        <!-- محتوى الروابط -->
+        <!-- شريط تعريف البرنامج -->
+        <div class="app-bar">
+            <div class="app-bar-title">
+                <img src="app-logo.png" alt="Pharmacy Logo" class="app-bar-icon">
+                <div class="app-bar-text">
+                    <h2>Meta Origin - Pharmacy</h2>
+                    <span>نظام الصيدليات — الإصدار 1.1.0</span>
+                </div>
+            </div>
+            <span style="font-size: 12px; color: #94a3b8;"><i class="fa-solid fa-shield-halved" style="color: #22c55e;"></i> إصدار معتمد وآمن</span>
+        </div>
+
         <div class="content">
+            <!-- قسم روابط التحميل -->
             <div class="section-title">
                 <i class="fa-solid fa-cloud-arrow-down"></i> روابط التحميل المتاحة
             </div>
@@ -218,7 +473,7 @@
                         <i class="fa-solid fa-box-archive" style="color: #60a5fa;"></i>
                         <div class="btn-text">
                             <span class="platform-name">Koofr</span>
-                            <span class="platform-desc">الباسورد: <span class="password-note" onclick="navigator.clipboard.writeText('702912'); alert('تم نسخ كلمة السر بنجاح!');">702912 (انسخ)</span></span>
+                            <span class="platform-desc">الباسورد: <span class="password-note" onclick="event.preventDefault(); navigator.clipboard.writeText('702912'); alert('تم نسخ كلمة السر بنجاح (702912)');">702912 (انسخ)</span></span>
                         </div>
                     </div>
                     <i class="fa-solid fa-download action-icon"></i>
@@ -284,13 +539,89 @@
                     <i class="fa-solid fa-download action-icon"></i>
                 </a>
             </div>
+
+            <!-- صندوق تقرير المشاكل -->
+            <div class="report-box">
+                <a href="https://wa.me/201150606002?text=السلام%20علكم،%20أريد%20إرسال%20تقرير%20مشكلة%20في%20برنامج%20الصيدليات" target="_blank" class="report-btn">إرسال تقرير مشكلة</a>
+                <div class="report-text">
+                    <h3><i class="fa-solid fa-bug" style="color: #f87171;"></i> عندك مشكلة في البرنامج؟</h3>
+                    <p>ابعث تقرير للدعم الفني فيه معلومات الجهاز وأخر الأخطاء (من غير بيانات عملاء).</p>
+                </div>
+            </div>
+
+            <!-- قسم فريق العمل والتواصل -->
+            <div class="section-title">
+                <i class="fa-solid fa-users"></i> فريق العمل وطرق التواصل
+            </div>
+
+            <div class="team-grid">
+                <!-- محمود يوسف -->
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-avatar-placeholder">م</div>
+                        <div class="team-info">
+                            <div class="role">المؤسس والمدير التنفيذي</div>
+                            <h3>محمود يوسف</h3>
+                            <div class="english-name">Mahmoud Youssef</div>
+                        </div>
+                    </div>
+                    <div class="team-card-body">
+                        يقود رؤية Meta Origin وتطوير منتجاتها. خبرته في فهم احتياجات المؤسسات وتحويلها لأنظمة عملية بتوفّر الوقت وبتظبط الحسابات، وبيتابع بنفسه تصميم الحلول وتركيبها ودعم العملاء.
+                        
+                        <div class="contact-title">
+                            <i class="fa-solid fa-headset" style="color: #3b82f6;"></i> للتواصل والواتساب
+                        </div>
+                        <div class="whatsapp-list">
+                            <!-- الرقم الأساسي -->
+                            <div class="whatsapp-item primary-item">
+                                <span class="phone-num">01150606002</span>
+                                <a href="https://wa.me/201150606002" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب (الأساسي)</a>
+                            </div>
+                            <div class="whatsapp-item">
+                                <span class="phone-num">01277122615</span>
+                                <a href="https://wa.me/201277122615" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                            </div>
+                            <div class="whatsapp-item">
+                                <span class="phone-num">01011121145</span>
+                                <a href="https://wa.me/201011121145" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- عمر صالح -->
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-avatar-placeholder" style="background: #0284c7; border-color: #38bdf8;">ع</div>
+                        <div class="team-info">
+                            <div class="role" style="color: #38bdf8;">الشريك المؤسس</div>
+                            <h3>عمر صالح</h3>
+                            <div class="english-name">Omar Saleh</div>
+                        </div>
+                    </div>
+                    <div class="team-card-body">
+                        شريك في تأسيس Meta Origin ومسؤول عن تطوير الأعمال والعلاقة مع العملاء. بيحرص إن كل مؤسسة تاخد النظام المناسب لحجمها وطريقة شغلها، وبيتابع التدريب وخدمة ما بعد البيع.
+                        
+                        <div class="contact-title">
+                            <i class="fa-solid fa-headset" style="color: #38bdf8;"></i> للتواصل والواتساب
+                        </div>
+                        <div class="whatsapp-list">
+                            <div class="whatsapp-item">
+                                <span class="phone-num">01200966258</span>
+                                <a href="https://wa.me/201200966258" target="_blank" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- تذييل الصفحة مع لوجو الشركة الحقيقي -->
+    <!-- تذييل الصفحة -->
     <div class="footer">
-        <img src="company-logo.png" alt="Meta Origin Company Logo" class="company-logo-footer">
-        <span>جميع الحقوق محفوظة &copy; 2026 Meta Origin</span>
+        <img src="company-logo.png" alt="Meta Origin Logo" class="company-logo-footer">
+        <span>Meta Origin 2026 © Meta Origin - Pharmacy — جميع الحقوق محفوظة</span>
     </div>
 
 </body>
